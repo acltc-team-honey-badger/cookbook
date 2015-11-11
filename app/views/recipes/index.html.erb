@@ -1,0 +1,16 @@
+<h1>Recipes</h1>
+
+<div class="row">
+  <% @recipes.each do |recipe| %>
+  <div class="col-md-3">
+    <div class="product-box">    
+      <p>Title: <%= recipe.title %></p>
+      <p>Chef: <%= recipe.chef %></p>
+      <p>Ingredients: <%= recipe.ingredients %></p>
+      <p>Directions: <%= recipe.directions %></p>
+      <p>Prep Time in Seconds: <%= recipe.prep_time %></p>
+      <img class="center-block img-responsive" src="<%= recipe.image %>">
+    </div>
+  </div>
+  <% end %>
+</div>
