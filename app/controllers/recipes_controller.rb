@@ -4,10 +4,34 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def parameters
-    @message = params[:message]
-    @second_message = params[:second_message]
+  def new
   end
 
+  def create
+    title = params[:title]
+    chef = params[:chef]
+    image = params[:image]
+    Recipe.create(title: title, chef: chef, image: image)
+  end
+
+  def show
+    id = params[:id]
+    @recipe = Recipe.find_by(id: id)
+  end
+
+  def edit
+    id = params[:id]
+    @recipe = Recipe.find_by(id: id)
+  end
+
+  def update
+    id = params[:id]
+    recipe = Recipe.find_by(id: id)
+    
+    title = params[:title]
+    chef = params[:chef]
+    image = params[:image]
+    recipe.update(title: title, chef: chef, image: image)
+  end
 
 end
