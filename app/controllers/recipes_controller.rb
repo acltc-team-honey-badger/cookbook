@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
     chef = params[:chef]
     image = params[:image]
     recipe = Recipe.create(title: title, chef: chef, image: image)
+    flash[:success] = "Recipe Created"
     redirect_to "/recipes/#{recipe.id}"
   end
 
@@ -33,12 +34,16 @@ class RecipesController < ApplicationController
     chef = params[:chef]
     image = params[:image]
     recipe.update(title: title, chef: chef, image: image)
+    flash[:notice] = "Recipe Updated"
+    redirect_to "/recipes/#{recipe.id}"
   end
 
   def destroy
     id = params[:id]
     recipe = Recipe.find_by(id: id)
     recipe.destroy
+    flash[:warning] = "Recipe Deleted!!!!!"
+    redirect_to "/recipes"
   end
 
 end

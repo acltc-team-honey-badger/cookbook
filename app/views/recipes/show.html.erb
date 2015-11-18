@@ -1,8 +1,20 @@
 <h1>Recipe</h1>
 
 <p>
-<%= @recipe.title %>
+  <%= @recipe.title %>
+</p>
+<p>
+  <ol>
+    <% @recipe.ingredient_list.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ol>
+</p>
+<p>Recipe Created at: <%= @recipe.friendly_created_at %></p>
+<p>
+  <img class="center-block img-responsive" src="<%= @recipe.image %>">
 </p>
 
 
 <%= link_to "Delete", "/recipes/#{@recipe.id}", method: :delete %>
+<%= link_to "Edit", "/recipes/#{@recipe.id}/edit" %>

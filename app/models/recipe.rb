@@ -1,11 +1,12 @@
 class Recipe < ActiveRecord::Base
 
-  @coolstuff = "neato"
 
-  attr_accessor :coolstuff
+  def ingredient_list
+    ingredients.split(",")
+  end
 
-  def title_plus_chef
-    title + chef + @coolstuff.to_s 
+  def friendly_created_at
+    created_at.strftime("%A, %d %b %Y %l:%M %p")
   end
 
 end

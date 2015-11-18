@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(version: 20151108230544) do
 
   create_table "recipes", force: :cascade do |t|
-    t.string   "title"
-    t.string   "chef"
-    t.string   "ingredients"
-    t.text     "directions"
-    t.integer  "prep_time"
-    t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",       limit: 255
+    t.string   "chef",        limit: 255
+    t.string   "ingredients", limit: 255
+    t.text     "directions",  limit: 65535
+    t.integer  "prep_time",   limit: 4
+    t.string   "image",       limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end
